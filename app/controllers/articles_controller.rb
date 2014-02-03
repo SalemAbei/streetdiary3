@@ -23,7 +23,6 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
-    @article = current_user.articles.new
   end
 
   # POST /articles
@@ -71,9 +70,9 @@ class ArticlesController < ApplicationController
     # hier kommt das mit dem user rein.
     def set_article 
       @article = Article.find(params[:id])
-      if @article.user_id != current_user.id
-        redirect_to articles_url, alert: 'You can only edit Articles that you created'
-      end
+     #if @article.user_id != current_user.id
+      #  redirect_to articles_url, alert: 'You can only edit Articles that you created'
+      #end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
