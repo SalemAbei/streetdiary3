@@ -1,24 +1,26 @@
 <div class="main">
   <ul id="og-grid" class="og-grid">
-    
+
     <% @articles.each do |article| %>
 
-
-    <li>
-      <a href="<%= article.url %>" data-largesrc="<%= article.image_url %>" data-title="<%= article.name %>" data-description="<%= article.description %>">
-        <%= image_tag article.image_url(:thumb) if article.image? %>
-      </a>
-      <%= link_to 'Edit', edit_article_path(article), class: "edit_link" %>
-      <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-
         
-        
-    
+
+        <li>
+
+
+          <a href="<%= article.url %>" data-largesrc="<%= article.image_url %>" data-title="<%= article.name %>" data-description="<%= article.description %>"><%= image_tag article.image_url(:thumb) if article.image? %></a>
+        </li>
+
+      
+        <%= link_to 'Edit', edit_article_path(article), class: "edit_link" %>
+			<%= link_to 'Destroy', article, class: "edit_link", method: :delete, data: { confirm: 'Are you sure?' } %>      
+    </li>
+
+
     <% end %>
 
-</ul>
-  <p>Filler text by <a href=""> ????</a></p>
-  <%= link_to 'add more', new_article_path, id: "og-additems" %>
-</div>
+    <p>Filler text by <a href=""> ????</a></p>
+    <%= link_to 'add more', new_article_path, id: "og-additems" %>
 
+  </ul>
+</div>

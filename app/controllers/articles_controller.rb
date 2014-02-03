@@ -2,10 +2,13 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+  Rails.logger = Logger.new(STDOUT)
+
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all
+    logger.info 'blaaaaaaa'
   end
 
   # GET /articles/1
@@ -20,11 +23,13 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @article = current_user.articles.new
   end
 
   # POST /articles
   # POST /articles.json
   def create
+
     @article = current_user.articles.new(article_params)
 
     respond_to do |format|
@@ -56,17 +61,19 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
     @article.destroy
-    respond_to do |format|
-      format.html { redirect_to articles_url }
-      format.json { head :no_content }
-    end
+    
+    redirect_to articles_url
+
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_article # hier kommt das mit dem user rein.
-
+    # hier kommt das mit dem user rein.
+    def set_article 
       @article = Article.find(params[:id])
+      if @article.user_id != current_user.id
+        redirect_to articles_url, alert: 'You can only edit Articles that you created'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
