@@ -1,14 +1,14 @@
 module ArticlesHelper
 
-	def belongs_article_to_current_user article_user_id
+	def belongs_article_to_current_user (article_user_id)
 		if current_user
 
-			if article_user_id == current_user.id
+			if article_user_id == current_user.id || current_user.admin?
 				true
 			else
 				false 
 			end 
-			
+
 		end
 	end
 

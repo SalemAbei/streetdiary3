@@ -1,29 +1,51 @@
-<div class="main">
-  <ul id="og-grid" class="og-grid">
+	<div id="hintergrund2">
 
-    <% @articles.each do |article| %>
+	<div class="main">
+	  <ul id="og-grid" class="og-grid">
 
-        
+	    <% @articles.each do |article| %>
+
+	        
+	    		
+	    	
+		        <li>
+		          <a href="<%= article.url %>" data-largesrc="<%= article.image_url %>" data-title="<%= article.name %>" data-description="<%= article.description %>"><%= image_tag article.image_url(:thumb,) if article.image? %></a>
+
+		        </li>
 
 
-        <li>
+		      <div id= "Edit/Destroy">
+		      <% if belongs_article_to_current_user(article.user.id) == true %>
 
-          <a href="<%= article.url %>" data-largesrc="<%= article.image_url %>" data-title="<%= article.name %>" data-description="<%= article.description %>"><%= image_tag article.image_url(:thumb) if article.image? %></a>
+		      <a class="btn btn-default btn-xs"
+		      	<%= link_to 'Edit', edit_article_path(article), class: "edit_link" %>
+		      </a>
 
-        </li>
+					<a class="btn btn-default btn-xs"
+						<%= link_to 'Destroy', article, class: "delete_link", method: :delete, data: { confirm: 'Are you sure?' } %>
+					</a>
+						<% end %>
+					</div>   
+				
+						
 
-      <% if belongs_article_to_current_user(article.user.id) == true %>
-      	<%= link_to 'Edit', edit_article_path(article), class: "edit_link" %>
-				<%= link_to 'Destroy', article, class: "edit_link", method: :delete, data: { confirm: 'Are you sure?' } %>      
-			<% end %>
+		    <% end %>
+ </ul>
+	 
+<a class="btn btn-default" <% if current_user %>
+	    	<%= link_to 'add more', new_article_path, id: "og-additems" %>
+	    <% end %></a>
 
-    <% end %>
+	
+	<div id= "FB"> <a class="btn btn-primary active" href="https://www.facebook.com">Friend us on <span>Facebook!</span></a> 
+	</div>
 
-    <p>Filler text by <a href=""> BiSa GmbH</a></p>
 
-    <% if current_user == true %>
-    	<%= link_to 'add more', new_article_path, id: "og-additems" %>
-    <% end %>
+	  
+	<footer>
+	    <p>© StreetDiary by <a href="http://www.hwr-berlin.de/">Bilge&Salem</a></p>
+	</footer>
+	 
+	</div>
 
-  </ul>
 </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -18,12 +19,20 @@
 		<link rel="stylesheet" type="text/css" href="/css/component.css" />
 		<script src="/js/modernizr.custom.js"></script>
 	</head>
+
 	<body>
+		<div id="hintergrund">
+			<div class="container">	
+<header>
+	
+	<div id="Bild"><%= image_tag "Header.png", :size => "800x350" %></div>
+</header>
+
 		<%= render 'layouts/navigation' %>
-		<div class="container">	
+
 			<%= render 'layouts/messages' %>
 			<%= yield %>
-		</div>
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="/js/grid.js"></script>
 		<script>
@@ -31,5 +40,7 @@
 				Grid.init();
 			});
 		</script>
+		</div>
+	</div>
 	</body>
 </html>
