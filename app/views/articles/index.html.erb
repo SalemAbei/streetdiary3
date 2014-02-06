@@ -32,7 +32,8 @@
 		    <% end %>
  </ul>
 	 
-<a class="btn btn-default" <% if current_user %>
+	 <% if current_user %>
+<a class="btn btn-default" a>
 	    	<%= link_to 'add more', new_article_path, id: "og-additems" %>
 	    <% end %></a>
 
