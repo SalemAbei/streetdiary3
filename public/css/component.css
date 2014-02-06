@@ -19,6 +19,8 @@
 	outline: none;
 	display: block;
 	position: relative;
+	height: 220px;
+	width: 200px;
 }
 
 .og-grid li.og-expanded > a::after {
@@ -29,7 +31,7 @@
 	width: 0;
 	position: absolute;
 	pointer-events: none;
-	border-bottom-color: #ddd;
+	border-bottom-color: #88AEB7;
 	border-width: 15px;
 	left: 50%;
 	margin: -20px 0 0 -15px;
@@ -37,7 +39,7 @@
 
 .og-expander {
 	position: absolute;
-	background: #ddd;
+	background: #88AEB7;
 	top: auto;
 	left: 0;
 	width: 100%;

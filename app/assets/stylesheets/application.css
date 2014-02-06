@@ -51,15 +51,15 @@ footer {
 }
 
 #hintergrund{
-	background-color: #999;
+	background-color: #88AEB7;
 	width: 90%;
 	position: relative;
-	margin: 5%;
+	margin: 0 5%;
 }
 
 #Bild{
 	position: relative;
-	margin: 0px;
+	margin: 10px 5px 0px;
 	padding: 0px;
 }
 
@@ -68,16 +68,19 @@ header{
 }
 
 #hintergrund2{
-	background-color: #F5EBF3;
+	background-color: rgb(249, 249, 249);
 	width: 90%;
 	position: relative;
 	margin: 5%;
 	height: 90%;
 }
 
+
 #Position {
 	position: relative;
 
 }
+
+
 
 

@@ -1,28 +1,74 @@
+
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+1. Projekt-Beschreibung in README.
 
-* Ruby version
+    a) Projekt-Name:  StreetDiary Fashion Blog
 
-* System dependencies
+    b) Vor- und Nachnamen und Matrikel-Nummern der Team-Mitglieder: Bilge Giray Matriklenummer: 362094
+								Jerusalem Abei Matrikelnummer: 362638
 
-* Configuration
+    c) Ausführliche Beschreibung:
+        i)Beschreibung des Projekts
 
-* Database creation
+        Das Konzept dieser Seite ist es Usern zu ermöglicht ihre eigene Bilder, mit Bezug auf Mode, hochzuladen und diese mit den Besuchern der Seite zu teilen. Besuchern wird ermöglicht sich eine tägliche Inspiration zu holen, die eigestellte Mode zu bewerten und diese, mit einem weiterführendem Link auf die entsprechende Onlineshop, zu erwerben.
 
-* Database initialization
+        ii)Beschreibung der technischen Umsetzung
+        Das Projekt basiert auf Ruby on Rails 4 und Sql-lite. Als JavaScript Framework wurde das standardmäßig vorhanden jQuery verwendet, vorallem im public verwendet. 
 
-* How to run the test suite
+        Der CSS bereich wurde mit Bootsstrp aufgesetzt.
 
-* Services (job queues, cache servers, search engines, etc.)
+        Der Artikel kann verändert werden durch: Link zur Edit-Methode im Controller.
 
-* Deployment instructions
+				Scaffold zum generieren des Artikels 
 
-* ...
+				Index-Seite befindet sich die Homepage
+
+				Fehlermeldungen mit Pannel im:
+  			app/view/article/_from.html.erb
+
+				Man kann sich als User registrieren und ein und 		ausloggen. diese ist im _navigation.html.erb angelegt.
+
+				Die Test-Daten für die Test der user befinden sich im fixtures/users.yaml
+
+				Autorisierung der User werden durch die before_action definierung vor abfrage 	im Controller. app/contrllers/article_controllers.rb. 
+				Der User mus eingeloggt sein um Artikels löschen, hochladen bzw. bearbeiten 	zu können.
+
+				Ein erstellter Artikel wird dem User zugeordnet, der ihn erstellt hat. Ein User 	kann mehrere Artikel haben. Das geht durch die Methode „belongs article to current user“ 	im helper. Im Index werden durch die if Bedingung festgelegt, das 	nur die User die ihren Artikel erstellt haben die Bearbeitungsbutton sehen. 
+
+				Der Admin kann alle Einträge bearbeiten, löschen und verwalten
+
+				Flash-Nachrichten für das Erfolgreiche bzw. nicht 	erfolgreiche Einloggen. 
+ 				app/views/layouts/_messages.html.rb so wie Warnbenachrichtigung im alert:.
+
+ 				diese werden im Partial im durch einen <%= yield %>
+ 				app/views/layouts/application.html.rb
+
+ 				Für das erzeugen eines Image Uploades haben wir diesen im app/uploaders/image_uploader.rb konfiguriert. Bei app/models/article.rb wird angegeben welcher Uploader oder welches Feld dazugehört. 
+
+				Um einen Datei-Upload mit einem Formular möglich ist muss dieser in ein Multipart umgestellt werden im app/view/articels/_form.html.erb
+
+				Als nächstes wird ein Feld und eine Remote-URL hinzugefügt
+
+				Die Erlaubnis für image und remote_image_url geben im Articels-Controller 
 
 
-Please feel free to use a different markup language if you do not plan to run
+				app/uploaders/image_uploader.rb haben wir die Option hinzugefügt die Bilder zu skalieren (MiniMagick hinzugefügt )
+
+				td = Feld einer Tabelle -> Hier wird das Bild ausgeben im app/views/paintings/index.html.erb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <tt>rake doc:app</tt>.

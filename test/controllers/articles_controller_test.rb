@@ -5,6 +5,10 @@ class ArticlesControllerTest < ActionController::TestCase
     @article = articles(:one)
   end
 
+  def nil.authenticate!
+    puts "Bingo! Nil is now authentic!"
+  end
+
   test "should get index" do
     get :index
     assert_response :success
