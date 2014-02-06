@@ -15,6 +15,7 @@
         Das Konzept dieser Seite ist es Usern zu ermöglicht ihre eigene Bilder, mit Bezug auf Mode, hochzuladen und diese mit den Besuchern der Seite zu teilen. Besuchern wird ermöglicht sich eine tägliche Inspiration zu holen, die eigestellte Mode zu bewerten und diese, mit einem weiterführendem Link auf die entsprechende Onlineshop, zu erwerben.
 
         ii)Beschreibung der technischen Umsetzung
+        
         Das Projekt basiert auf Ruby on Rails 4 und Sql-lite. Als JavaScript Framework wurde das standardmäßig vorhanden jQuery verwendet, vorallem im public verwendet. 
 
         Der CSS bereich wurde mit Bootsstrp aufgesetzt.

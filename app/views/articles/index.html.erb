@@ -5,13 +5,13 @@
 
 				<% @articles.each do |article| %>
 
-				
-				
-				
+
+
+
 				<li>
 					<a href="<%= article.url %>" data-largesrc="<%= article.image_url %>" data-title="<%= article.name %>" data-description="<%= article.description %>"><%= image_tag article.image_url(:thumb,) if article.image? %></a>
 
-					
+
 
 
 					<div id= "Edit/Destroy">
@@ -26,12 +26,12 @@
 				</a>
 				<% end %>
 			</div>   
-			
+
 		</li>	
 
 		<% end %>
 	</ul>
-	
+
 	<% if current_user %>
 	<a class="btn btn-default" 
 	<%= link_to 'add more', new_article_path, id: "og-additems" %>
@@ -41,12 +41,11 @@
 	<div id= "FB"> <a class="btn btn-primary active" href="https://www.facebook.com">Friend us on <span>Facebook!</span></a> 
 	</div>
 
-
 	
 	<footer>
 		<p>© StreetDiary by <a href="http://www.hwr-berlin.de/">Bilge&Salem</a></p>
 	</footer>
-	
+
 </div>
 
 </div>

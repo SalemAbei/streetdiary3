@@ -7,9 +7,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
-    logger.info 'blaaaaaaa'
-   
+    @articles = Article.all.order(created_at: :desc)
   end
 
   # GET /articles/1
@@ -48,7 +46,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to article_url, notice: 'Article was successfully updated.' }
+        format.html { redirect_to articles_url, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -71,9 +69,9 @@ class ArticlesController < ApplicationController
     # hier kommt das mit dem user rein.
     def set_article 
       @article = Article.find(params[:id])
-     #if @article.user_id != current_user.id
-      #  redirect_to articles_url, alert: 'You can only edit Articles that you created'
-      #end
+      if @article.user_id != current_user.id
+        redirect_to articles_url, alert: 'You can only edit Articles that you created'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
